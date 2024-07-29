@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+
 
 const inter = Inter({ subsets: ["latin"] });
+const font_sans = Plus_Jakarta_Sans({ subsets: ["latin"], weight: ['300', '400', '500','600', '700'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
   title: "AyoCare",
@@ -19,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={cn('min-h-screen bg-dark-300 font-sans antialiased', font_sans.variable)}>{children}</body>
     </html>
   );
 }
