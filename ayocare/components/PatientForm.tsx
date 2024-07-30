@@ -20,6 +20,7 @@ import Phoneinput from "./Phoneinput"
 import PhoneInput from "react-phone-number-input/input"
 import SubmitBtn from "./SubmitBtn"
 import { UserFormValidation } from '@/lib/validation'
+import { createUser } from '@/lib/actions/patient.action'
 
 
 export default function PatientForm() {
@@ -28,7 +29,8 @@ export default function PatientForm() {
   const onSubmit = async () => {
     console.log('submitting ur data...');
     try {
-      
+      // const userData = { name, email, phone};
+      const user = await createUser('ayonaim101@gmail.com', '09032139771', 'Ayo');
     } catch (error) {
       console.log(error)
     }
