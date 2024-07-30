@@ -19,20 +19,28 @@ import CustomInput from "./CustomInput"
 import Phoneinput from "./Phoneinput"
 import PhoneInput from "react-phone-number-input/input"
 import SubmitBtn from "./SubmitBtn"
+import { UserFormValidation } from '@/lib/validation'
 
-const formSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
-  }),
-})
 
 export default function PatientForm() {
   // ...
 
-  const onSubmit = () => {
-    console.log('submitting ur data...')
+  const onSubmit = async () => {
+    console.log('submitting ur data...');
+    try {
+      
+    } catch (error) {
+      console.log(error)
+    }
   };
-  const form = useForm();
+  const form = useForm<z.infer <typeof UserFormValidation>>({
+    resolver: zodResolver(UserFormValidation),
+    defaultValues: {
+      name: "",
+      email: "",
+      phone: "",
+    }
+});
   const [isLoading, setisLoading] = useState(false)
   return (
     <Form {...form}>
