@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
       <html lang="en" suppressHydrationWarning>
-        <ThemeProvider attribute="class" defaultTheme="light">
+        <ThemeProvider attribute="class" defaultTheme="system">
           <body className={cn('min-h-screen bg-dark-300 font-sans antialiased', font_sans.variable)}>{children}</body>
         </ThemeProvider>
       </html>

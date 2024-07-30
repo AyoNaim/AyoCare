@@ -15,24 +15,24 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 
-const CustomInput = ({input_name, control, description}: any) => {
+const CustomInput = ({input_name, description, placeholder}: any) => {
     
   const onSubmit = () => {
     console.log('submitting ur data...')
   };
-  const form = useForm()
+  const form = useForm();
   return (
     <FormField
     control={form.control}
     name="username"
     render={({ field }) => (
       <FormItem>
-        <FormLabel>Username</FormLabel>
+        <FormLabel>{input_name}</FormLabel>
         <FormControl>
-          <Input placeholder="shadcn" {...field} />
+          <Input placeholder={placeholder} {...field} />
         </FormControl>
         <FormDescription>
-          This is your public display name.
+          {description}
         </FormDescription>
         <FormMessage />
       </FormItem>
