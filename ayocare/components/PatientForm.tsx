@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-
+import CustomFormField, { FormFieldType } from "./CustomInput";
 import { Button } from "@/components/ui/button"
 import {
   Form,
@@ -29,8 +29,8 @@ export default function PatientForm() {
   const onSubmit = async () => {
     console.log('submitting ur data...');
     try {
-      // const userData = { name, email, phone};
-      const user = await createUser('ayonaim101@gmail.com', '09032139771', 'Ayo');
+      const user = await createUser();
+      console.log(user);
     } catch (error) {
       console.log(error)
     }
@@ -51,10 +51,34 @@ export default function PatientForm() {
             <h1 className="header">Hi there 👋</h1>
             <p className="text-dark-700">schedule your first appointment</p>
         </section>
-        <CustomInput input_name='Username' description='Enter your username' placeholder='username' />
-        <CustomInput input_name='email' description='Enter your email' placeholder='email' />
+        <CustomFormField
+          fieldType={FormFieldType.INPUT}
+          control={form.control}
+          name="name"
+          label="Full name"
+          placeholder="John Doe"
+          iconSrc="./user.svg"
+          iconAlt="user"
+        />
+        <CustomFormField
+          fieldType={FormFieldType.INPUT}
+          control={form.control}
+          name="email"
+          label="Email"
+          placeholder="johndoe@gmail.com"
+          iconSrc="./email.svg"
+          iconAlt="email"
+        />
+        {/* <CustomFormField
+          fieldType={FormFieldType.PHONE_INPUT}
+          control={form.control}
+          name="phone"
+          label="Phone number"
+          placeholder="(555) 123-4567"
+        /> */}
+        
         {/* <PhoneInput defaultCountry="US" placeholder="enter your phone number" international withCountryCallingCode onChange={() => {}} /> */}
-        <SubmitBtn isLoading={isLoading}>Submit</SubmitBtn>
+        <div onClick={onSubmit}><SubmitBtn isLoading={isLoading}>Submit</SubmitBtn></div>
       </form>
     </Form>
   )

@@ -15,7 +15,7 @@ export default function Home() {
             </div>
         </div>
       </section>
-      <Image src={'/onboarding-img.png'} alt="onboarding" width={1000} height={2000} className="max-w-[50%] h-screen side-img" />
+      <Image src={'/onboarding-img.png'} alt="onboarding" width={1000} height={2000} className="max-w-[50%] h-screen" />
     </main>
   );
 }

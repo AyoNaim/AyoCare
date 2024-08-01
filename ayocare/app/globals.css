@@ -60,6 +60,9 @@
 }
 
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* ========================================== TAILWIND STYLES */
 @layer base {
@@ -68,7 +71,8 @@
     width: 0px;
     height: 0px;
     border-radius: 0px;
-    overflow-y: hidden;
+    display: none;
+    scrollbar-width: none;
   }
 
   .remove-scrollbar::-webkit-scrollbar-track {
@@ -159,9 +163,9 @@
     @apply flex h-full flex-1 items-center gap-2 rounded-md border border-dashed border-dark-500 bg-dark-400 p-3;
   }
 
-  .checkbox-label {
+  /* .checkbox-label {
     @apply cursor-pointer text-sm font-medium text-dark-700 peer-disabled:cursor-not-allowed peer-disabled:opacity-70 md:leading-none;
-  }
+  } */
 
   /* ==== File Upload */
   .file-upload {
@@ -254,21 +258,21 @@
     @apply border border-dark-500 cursor-pointer bg-dark-400 text-white !important;
   }
 
-  .shad-input-label {
+  /* .shad-input-label {
     @apply text-14-medium text-dark-700 !important;
-  }
-
+  } */
+/* 
   .shad-input {
     @apply bg-dark-400 placeholder:text-dark-600 border-dark-500 h-11 focus-visible:ring-0 focus-visible:ring-offset-0 !important;
-  }
+  } */
 
   .shad-input-icon {
     @apply bg-dark-400 placeholder:text-dark-600 border-dark-500 h-11 focus-visible:ring-0 focus-visible:ring-offset-0 !important;
   }
 
-  .shad-textArea {
+  /* .shad-textArea {
     @apply bg-dark-400 placeholder:text-dark-600 border-dark-500 focus-visible:ring-0 focus-visible:ring-offset-0 !important;
-  }
+  } */
 
   .shad-combobox-item {
     @apply data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 !important;
@@ -278,13 +282,13 @@
     @apply h-11 !important;
   }
 
-  .shad-select-trigger {
+  /* .shad-select-trigger {
     @apply bg-dark-400  placeholder:text-dark-600 border-dark-500 h-11 focus:ring-0 focus:ring-offset-0 !important;
-  }
+  } */
 
-  .shad-select-content {
+  /* .shad-select-content {
     @apply bg-dark-400 border-dark-500 !important;
-  }
+  } */
 
   .shad-dialog {
     @apply bg-dark-400 border-dark-500 !important;
@@ -294,9 +298,9 @@
     @apply focus:ring-0 focus:ring-offset-0 focus-visible:border-none focus-visible:outline-none focus-visible:ring-transparent focus-visible:ring-offset-0 !important;
   }
 
-  .shad-error {
+  /* .shad-error {
     @apply text-red-400 !important;
-  }
+  } */
 
   .shad-table {
     @apply rounded-lg overflow-hidden !important;
@@ -327,14 +331,14 @@
   }
 
   /* =====  REACT PHONE NUMBER INPUT OVERRIDES */
-  .input-phone {
+  /* .input-phone {
     @apply mt-2 h-11 rounded-md px-3 text-sm border bg-dark-400 placeholder:text-dark-600 border-dark-500 !important;
-  }
+  } */
 
   /* =====  REACT DATE PICKER OVERRIDES */
-  .date-picker {
+  /* .date-picker {
     @apply overflow-hidden border-transparent w-full placeholder:text-dark-600  h-11 text-14-medium rounded-md px-3 outline-none !important;
-  }
+  } */
 }
 
 /* =====  REACT-DATEPICKER OVERRIDES */
