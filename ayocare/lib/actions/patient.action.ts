@@ -16,3 +16,11 @@ export const createUser = async () => {
         // }
     }
 }
+
+export const getUsers = async (userId: string) => {
+    try {
+        const user = await users.get(userId);
+    } catch (error) {
+        console.log(error);
+    }
+}
