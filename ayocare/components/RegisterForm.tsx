@@ -65,22 +65,53 @@ export default function PatientForm() {
           iconSrc="./user.svg"
           iconAlt="user"
         />
-        <CustomFormField
-          fieldType={FormFieldType.INPUT}
-          control={form.control}
-          name="email"
-          label="Email"
-          placeholder="johndoe@gmail.com"
-          iconSrc="./email.svg"
-          iconAlt="email"
-        />
-        {/* <CustomFormField
-          fieldType={FormFieldType.PHONE_INPUT}
-          control={form.control}
-          name="phone"
-          label="Phone number"
-          placeholder="(555) 123-4567"
-        /> */}
+        <div className='flex flex-col gap-6 xl:flex-row'>
+          <CustomFormField
+            fieldType={FormFieldType.INPUT}
+            control={form.control}
+            name="email"
+            label="Email"
+            placeholder="johndoe@gmail.com"
+            iconSrc="./email.svg"
+            iconAlt="email"
+          />
+          <CustomFormField
+            fieldType={FormFieldType.INPUT}
+            control={form.control}
+            name="phone"
+            label="Phone number"
+            placeholder="(555) 123-4567"
+          />
+          <div className='flex flex-col gap-6 xl:flex-row'>
+            <CustomFormField
+              fieldType={FormFieldType.DATE_PICKER}
+              control={form.control}
+              name="Date of birth"
+              label="birthdate"
+              placeholder="dd/mm/yyyy"
+            />
+          </div>
+          <div className='flex flex-col gap-6 xl:flex-row'>
+          <CustomFormField
+            fieldType={FormFieldType.SKELETON}
+            control={form.control}
+            name="gender"
+            label="gender"
+            renderSkeleton={(field) => {
+              <FormControl>
+                
+              </FoemControl>
+            }}
+          />
+          </div>
+          <div className='flex flex-col gap-6 xl:flex-row'>
+            
+          </div>
+          <div className='flex flex-col gap-6 xl:flex-row'>
+            
+          </div>
+
+        </div>
         
         {/* <PhoneInput defaultCountry="US" placeholder="enter your phone number" international withCountryCallingCode onChange={() => {}} /> */}
         <div onClick={onSubmit}><SubmitBtn isLoading={isLoading}>Submit</SubmitBtn></div>
