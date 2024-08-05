@@ -244,6 +244,32 @@ export default function PatientForm() {
             placeholder="e.g 1234567"
           />
           <MyDropzone />
+          <section className="mb-12 space-y-6">
+            <div className='mb-9 space-y-1'>
+            <h2 className="sub-header">Consent And Privacy</h2>
+          </div>
+        </section>
+        <CustomFormField
+            fieldType={FormFieldType.CHECKBOX}
+            control={form.control}
+            name="phone"
+            label="I consent to treatment for my health condition"
+            placeholder="e.g 1234567"
+          />
+          <CustomFormField
+            fieldType={FormFieldType.CHECKBOX}
+            control={form.control}
+            name="phone"
+            label="I consent to treatment for my health condition"
+            placeholder="e.g 1234567"
+          />
+          <CustomFormField
+            fieldType={FormFieldType.CHECKBOX}
+            control={form.control}
+            name="phone"
+            label="I consent to treatment for my health condition"
+            placeholder="e.g 1234567"
+          />
         {/* <PhoneInput defaultCountry="US" placeholder="enter your phone number" international withCountryCallingCode onChange={() => {}} /> */}
         <div onClick={onSubmit}><SubmitBtn isLoading={isLoading}>Submit</SubmitBtn></div>
       </form>
