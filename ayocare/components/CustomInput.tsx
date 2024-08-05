@@ -21,7 +21,7 @@ import { Textarea } from './ui/textarea'
 import PhoneInput from "react-phone-number-input";
 import { Checkbox } from './ui/checkbox';
 import ReactDatePicker from "react-datepicker";
-
+import "react-datepicker/dist/react-datepicker.css";
 
 
 export enum FormFieldType {
@@ -117,7 +117,7 @@ const RenderInput = ({field, props} : {field: any, props:CustomProps}) => {
         return (
           <div className="flex rounded-md border border-dark-500 bg-dark-400">
             <Image
-              src="/assets/icons/calendar.svg"
+              src="/calendar.svg"
               height={24}
               width={24}
               alt="user"

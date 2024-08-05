@@ -1,19 +1,23 @@
-import { ID, Query } from "node-appwrite";
+import { Account, Client, ID, Query } from "node-appwrite";
 import { users } from "../appwrite.config";
+import { redirect } from "next/navigation";
 
-export const createUser = async () => {
+
+const client = new Client()
+client.setEndpoint('https://cloud.appwrite.io/v1');
+client.setProject('66a82f3d0001bbe2c367');
+
+
+export const createUser = () => {
     try {
-        const newUser = await users.create(ID.unique(), 'ayonaim101@gmail.com');
+        const account = new Account(client);
+        const newUser = account.createEmailToken(
+            ID.unique(), 'ayonaim101@gmail.com', true
+        );
+        newUser.then(redirect('./'));
         console.log(newUser);
     } catch (error: any) {
-        console.error(error);
-        // if (error && error.code === 409) {
-        //     const docs = await users.list([
-        //         Query.equal('email', [email])
-        //     ])
-        //     throw new error;
-        //     console.log(error);
-        // }
+        console.log(error)
     }
 }
 

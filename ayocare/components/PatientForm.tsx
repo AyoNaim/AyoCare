@@ -29,7 +29,7 @@ export default function PatientForm() {
   const onSubmit = async () => {
     console.log('submitting ur data...');
     try {
-      const user = await createUser();
+      const user = createUser();
       console.log(user);
     } catch (error) {
       console.log(error)
