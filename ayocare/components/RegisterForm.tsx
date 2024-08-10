@@ -26,10 +26,11 @@ import { Doctors, IdentificationTypes } from '@/constants'
 import { SelectItem } from './ui/select'
 import Image from 'next/image'
 import MyDropzone from './FileUploader'
+import { SubmitButton } from './submit-button'
 
 
 
-export default function PatientForm() {
+export default function PatientForm(formData: FormData) {
   // ...
 
   const onSubmit = async () => {
@@ -41,6 +42,8 @@ export default function PatientForm() {
       console.log(error)
     }
   };
+
+  
   const form = useForm<z.infer <typeof UserFormValidation>>({
     resolver: zodResolver(UserFormValidation),
     defaultValues: {
@@ -271,7 +274,7 @@ export default function PatientForm() {
             placeholder="e.g 1234567"
           />
         {/* <PhoneInput defaultCountry="US" placeholder="enter your phone number" international withCountryCallingCode onChange={() => {}} /> */}
-        <div onClick={onSubmit}><SubmitBtn isLoading={isLoading}>Submit</SubmitBtn></div>
+        <SubmitButton pendingText='please wait...' formAction={createUser} className='w-full bg-green-500 h-12 rounded-md'>Sign Up</SubmitButton>
       </form>
     </Form>
   )

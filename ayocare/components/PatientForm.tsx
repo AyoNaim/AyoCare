@@ -1,8 +1,8 @@
 "use client"
-import React, {useState} from 'react'
+import React, {FormEvent, useState} from 'react'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
-import { z } from "zod"
+import { any, z } from "zod"
 import CustomFormField, { FormFieldType } from "./CustomInput";
 import { Button } from "@/components/ui/button"
 import {
@@ -21,20 +21,10 @@ import PhoneInput from "react-phone-number-input/input"
 import SubmitBtn from "./SubmitBtn"
 import { UserFormValidation } from '@/lib/validation'
 import { createUser } from '@/lib/actions/patient.action'
-
+import { SubmitButton } from './submit-button'
 
 export default function PatientForm() {
   // ...
-
-  const onSubmit = async () => {
-    console.log('submitting ur data...');
-    try {
-      const user = createUser();
-      console.log(user);
-    } catch (error) {
-      console.log(error)
-    }
-  };
   const form = useForm<z.infer <typeof UserFormValidation>>({
     resolver: zodResolver(UserFormValidation),
     defaultValues: {
@@ -42,7 +32,20 @@ export default function PatientForm() {
       email: "",
       phone: "",
     }
-});
+  });
+
+  //values: z.infer<typeof UserFormValidation>
+  const onSubmit = async (e: FormEvent) => {
+    const formData = new FormData(e.target);
+    const userName = formData.get("name");
+    try {
+      console.log('creating user.........');
+      const newUser = createUser();
+      console.log(`this is the new account ${userName}`)
+    } catch (error) {
+      console.log(`your error is ${error}`)
+    }
+  };
   const [isLoading, setisLoading] = useState(false)
   return (
     <Form {...form}>
@@ -76,9 +79,10 @@ export default function PatientForm() {
           label="Phone number"
           placeholder="(555) 123-4567"
         /> */}
-        
+        <Input name='name' placeholder='test' aria-label='test' />
         {/* <PhoneInput defaultCountry="US" placeholder="enter your phone number" international withCountryCallingCode onChange={() => {}} /> */}
-        <div onClick={onSubmit}><SubmitBtn isLoading={isLoading}>Submit</SubmitBtn></div>
+        {/* <SubmitButton pendingText='please wait...' formAction={createUser} className='w-full bg-green-500 h-12 rounded-md'>Sign Up</SubmitButton> */}
+        <button className='w-full bg-green-500 h-12 rounded-md' onClick={onSubmit}>Sign Up</button>
       </form>
     </Form>
   )
