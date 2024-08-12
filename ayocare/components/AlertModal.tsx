@@ -15,9 +15,11 @@ import Image from "next/image";
 import { redirect } from "next/navigation";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { InputOTPDemo } from "./InputModal";
 
 
 export function AlertDialogDemo() {
+    // implement a functionality to set the modal to true when admin=true
     const [open, setopen] = useState(true);
     const closeModal = () => {
         setopen(false);
@@ -38,11 +40,11 @@ export function AlertDialogDemo() {
             </AlertDialogDescription>
           </AlertDialogHeader>
           <div>
-            
+            <InputOTPDemo />
           </div>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction>Continue</AlertDialogAction>
+            <AlertDialogCancel className="bg-red-500">Cancel</AlertDialogCancel>
+            <AlertDialogAction className="bg-green-500">Continue</AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
