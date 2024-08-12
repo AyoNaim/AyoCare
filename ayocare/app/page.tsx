@@ -1,10 +1,15 @@
+import Passkey from "@/components/Passkey";
 import { PatientForm } from "@/components/PatientTest";
 import Image from "next/image";
 import Link from "next/link"
 
-export default function Home() {
+export default function Home({ searchParams }: SearchParamProps) {
+  const isAdmin = searchParams.admin === 'true';
   return (
     <main className="flex min-h-screen max-h-screen remove-scrollbar">
+      {/* { isAdmin ? <Passkey /> : ''} */}
+      { isAdmin && <Passkey />}
+      
       <section className="remove-scrollbar container my-auto">
         <div className="sub-container max-w-[496px]">
             <Image src={'/logo-full.svg'} alt="logo" width={150} height={150} />
