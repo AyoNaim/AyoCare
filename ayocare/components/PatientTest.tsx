@@ -17,6 +17,11 @@ import { createUser } from "@/lib/actions/patient.action";
 export const PatientForm = () => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
+  const [formData, setformData] = useState({
+    name: '',
+    email: '',
+    password: '', 
+  })
 
   const form = useForm<z.infer<typeof UserFormValidation>>({
     resolver: zodResolver(UserFormValidation),
@@ -29,11 +34,6 @@ export const PatientForm = () => {
 
   const onSubmit = async (values: z.infer<typeof UserFormValidation>) => {
     setIsLoading(true);
-    const testUser = {
-      name: 'test',
-      email: 'test@example.com'
-    }
-
     try {
         console.log('creating user, please wait............................')
       const user = {
@@ -42,8 +42,13 @@ export const PatientForm = () => {
         phone: values.phone,
       };
 
+      // const test = {
+      //   name: 'ayo',
+      //   role: 'user',
+      //   purpose: 'test'
+      // };
       const newUser = await createUser(user);
-      console.log(testUser);
+      console.log(newUser, formData.password);
     //   if (newUser) {
     //     router.push(`/patients/${newUser.$id}/register`);
     //   }

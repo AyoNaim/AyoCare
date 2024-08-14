@@ -1,4 +1,5 @@
 import AdminCard from '@/components/AdminCard'
+import Datatable from '@/components/table/Datatable'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -22,6 +23,7 @@ const Admin = () => {
                 <AdminCard type="appointments" count={5} label="Pending appointments" icon="pending.svg" />
                 <AdminCard type="appointments" count={5} label="cancelled appointments" icon="cancelled.svg" />
             </section>
+            <Datatable />
         </main>
     </div>
   )
